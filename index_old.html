@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <meta name="theme-color" content="#ffffff">
+
+<link rel="manifest" href="./manifest.json">
+
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Meu App">
+
+    <title>Love Price 💝💸</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+            overflow-x: hidden;
+            background: #fff;
+        }
+
+        body {
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .planilha {
+            width: 100%;
+            height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        iframe {
+            display: block;
+            width: 100%;
+            height: 100vh;
+            min-height: 100vh;
+            border: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="planilha">
+
+        <iframe
+            src="https://1drv.ms/x/c/762904bb730f7dc5/IQRnQPaHajJ9SZ-4F6AKAe2TAYpW60J1d1Lp4v_loGXIn9M?wdAllowInteractivity=False&AllowTyping=True&ActiveCell='Mobile'!D6&Item='Mobile'!A1%3AG76&wdHideGridlines=True&wdHideHeaders=True&wdInConfigurator=True"
+            frameborder="0"
+            scrolling="no">
+        </iframe>
+
+    </div>
+<script>
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./service-worker.js")
+            .then(registration => {
+                console.log("Service Worker registrado:", registration.scope);
+            })
+            .catch(error => {
+                console.error("Erro ao registrar Service Worker:", error);
+            });
+    });
+}
+</script>
+
+</body>
+</html>

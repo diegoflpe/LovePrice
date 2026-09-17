@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width,
+               initial-scale=1.0,
+               maximum-scale=1.0,
+               user-scalable=no,
+               viewport-fit=cover">
+
+<!-- PWA -->
+<meta name="theme-color" content="#fff7fa">
+
+<meta name="apple-mobile-web-app-capable"
+      content="yes">
+
+<meta name="apple-mobile-web-app-status-bar-style"
+      content="default">
+
+<meta name="apple-mobile-web-app-title"
+      content="Love Price 💝💸">
+
+<link rel="manifest"
+      href="./manifest.json">
+
+<link rel="apple-touch-icon"
+      href="./icons/icon-192.png">
+
+<title>Love Price 💝💸</title>
+
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*,
+*::before,
+*::after {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+html,
+body {
+
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+
+    background: #fff7fa;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "SF Pro Text",
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    color: #1c1c1e;
+}
+
+
+/* =========================================================
+   APP
+========================================================= */
+
+.app {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    padding-top:
+        env(safe-area-inset-top);
+
+    padding-bottom:
+        env(safe-area-inset-bottom);
+
+    background:
+
+        radial-gradient(
+            circle at 90% -10%,
+            rgba(255,105,145,.16),
+            transparent 32%
+        ),
+
+        radial-gradient(
+            circle at -10% 20%,
+            rgba(255,180,205,.14),
+            transparent 30%
+        ),
+
+        #fff7fa;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+
+    position: relative;
+
+    z-index: 100;
+
+    width: 100%;
+
+    height: 70px;
+    min-height: 70px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding:
+        0 17px;
+
+    background:
+        rgba(255,255,255,.86);
+
+    border-bottom:
+        1px solid
+        rgba(255,79,129,.09);
+
+    backdrop-filter:
+        blur(24px)
+        saturate(180%);
+
+    -webkit-backdrop-filter:
+        blur(24px)
+        saturate(180%);
+
+    box-shadow:
+        0 4px 20px
+        rgba(80,20,40,.04);
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    min-width: 0;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo {
+
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ff477e,
+            #ff6b9a 55%,
+            #ff8daf
+        );
+
+    box-shadow:
+
+        0 7px 18px
+        rgba(255,71,126,.24),
+
+        inset 0 1px 0
+        rgba(255,255,255,.35);
+
+    font-size: 21px;
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.title-container {
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+
+.title {
+
+    color: #1c1c1e;
+
+    font-size: 18px;
+
+    line-height: 21px;
+
+    font-weight: 750;
+
+    letter-spacing: -.35px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+.subtitle {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    margin-top: 3px;
+
+    color: #8e8e93;
+
+    font-size: 11px;
+
+    line-height: 14px;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   INDICADOR ONLINE
+========================================================= */
+
+.online-dot {
+
+    width: 6px;
+    height: 6px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #34c759;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(52,199,89,.10);
+}
+
+
+/* =========================================================
+   BOTÃO ATUALIZAR
+========================================================= */
+
+.refresh-button {
+
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(0,0,0,.05);
+
+    border-radius: 14px;
+
+    background:
+        rgba(255,255,255,.80);
+
+    color: #ff477e;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 15px
+        rgba(80,20,40,.07);
+
+    transition:
+        transform .15s ease,
+        background .15s ease;
+
+    -webkit-appearance: none;
+}
+
+
+.refresh-button:active {
+
+    transform: scale(.90);
+
+    background: #ffffff;
+}
+
+
+.refresh-icon {
+
+    display: block;
+
+    line-height: 1;
+}
+
+
+.refresh-button.loading
+.refresh-icon {
+
+    animation:
+        spin
+        .75s
+        linear
+        infinite;
+}
+
+
+/* =========================================================
+   ÁREA PRINCIPAL
+========================================================= */
+
+.content {
+
+    position: relative;
+
+    width: 100%;
+
+    flex: 1 1 auto;
+
+    min-width: 0;
+    min-height: 0;
+
+    overflow: hidden;
+
+    /*
+     * Espaço ao redor do Excel.
+     */
+
+    padding:
+        10px;
+
+    background: transparent;
+}
+
+
+/* =========================================================
+   CARD DA PLANILHA
+========================================================= */
+
+.spreadsheet-container {
+
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    min-width: 0;
+    min-height: 0;
+
+    overflow: hidden;
+
+    /*
+     * BORDAS ARREDONDADAS
+     */
+
+    border-radius: 18px;
+
+    /*
+     * Borda extremamente sutil.
+     */
+
+    border:
+        1px solid
+        rgba(255,79,129,.10);
+
+    background: #ffffff;
+
+    /*
+     * Sombra do aplicativo.
+     */
+
+    box-shadow:
+
+        0 12px 35px
+        rgba(85,25,45,.08),
+
+        0 2px 8px
+        rgba(85,25,45,.04);
+
+    /*
+     * Evita bounce do container.
+     */
+
+    overscroll-behavior:
+        none;
+
+    /*
+     * Muito importante:
+     * mantém o iframe recortado dentro
+     * das bordas arredondadas.
+     */
+
+    isolation: isolate;
+}
+
+
+/* =========================================================
+   IFRAME DO EXCEL
+========================================================= */
+
+.spreadsheet {
+
+    /*
+     * O iframe fica preso aos quatro lados
+     * do card.
+     */
+
+    position: absolute;
+
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    min-width: 0;
+    min-height: 0;
+
+    display: block;
+
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+
+    background: #ffffff;
+
+    /*
+     * NÃO usar transform.
+     *
+     * NÃO usar scale.
+     *
+     * NÃO usar translate.
+     */
+
+    transform: none;
+
+    /*
+     * Evita o iframe participar
+     * de qualquer rolagem da página.
+     */
+
+    overscroll-behavior:
+        none;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading-screen {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 50;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: inherit;
+
+    background:
+        rgba(255,255,255,.98);
+
+    backdrop-filter:
+        blur(12px);
+
+    -webkit-backdrop-filter:
+        blur(12px);
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transition:
+        opacity .35s ease,
+        visibility .35s ease;
+}
+
+
+.loading-screen.hidden {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   LOGO LOADING
+========================================================= */
+
+.loading-logo {
+
+    width: 68px;
+    height: 68px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 21px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ff477e,
+            #ff7da5
+        );
+
+    box-shadow:
+
+        0 12px 32px
+        rgba(255,71,126,.25),
+
+        inset 0 1px 0
+        rgba(255,255,255,.4);
+
+    font-size: 32px;
+
+    animation:
+        loadingPulse
+        1.6s
+        ease-in-out
+        infinite;
+}
+
+
+.loading-title {
+
+    margin-top: 20px;
+
+    color: #1c1c1e;
+
+    font-size: 20px;
+
+    line-height: 24px;
+
+    font-weight: 750;
+
+    letter-spacing: -.4px;
+}
+
+
+.loading-text {
+
+    margin-top: 5px;
+
+    color: #8e8e93;
+
+    font-size: 13px;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   SPINNER
+========================================================= */
+
+.spinner {
+
+    width: 25px;
+    height: 25px;
+
+    margin-top: 18px;
+
+    border-radius: 50%;
+
+    border:
+        3px solid
+        rgba(255,71,126,.12);
+
+    border-top-color:
+        #ff477e;
+
+    animation:
+        spin
+        .75s
+        linear
+        infinite;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.status {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 20px;
+
+    z-index: 200;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 10px 15px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(28,28,30,.94);
+
+    color: #ffffff;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,.18);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform:
+        translate(-50%,10px)
+        scale(.96);
+
+    transition:
+        opacity .25s ease,
+        visibility .25s ease,
+        transform .25s ease;
+
+    white-space: nowrap;
+}
+
+
+.status.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translate(-50%,0)
+        scale(1);
+}
+
+
+/* =========================================================
+   ÍCONE STATUS
+========================================================= */
+
+.status-icon {
+
+    width: 16px;
+    height: 16px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #34c759;
+
+    color: #ffffff;
+
+    font-size: 10px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   CELULARES PEQUENOS
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .header {
+
+        height: 66px;
+
+        min-height: 66px;
+
+        padding:
+            0 13px;
+    }
+
+
+    .logo {
+
+        width: 38px;
+        height: 38px;
+
+        border-radius: 12px;
+
+        font-size: 19px;
+    }
+
+
+    .title {
+
+        font-size: 16px;
+    }
+
+
+    .subtitle {
+
+        font-size: 10px;
+    }
+
+
+    .refresh-button {
+
+        width: 39px;
+        height: 39px;
+
+        border-radius: 13px;
+    }
+
+
+    .content {
+
+        padding: 7px;
+    }
+
+
+    .spreadsheet-container {
+
+        border-radius: 15px;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET / DESKTOP
+========================================================= */
+
+@media (min-width: 768px) {
+
+    .header {
+
+        padding:
+            0 24px;
+    }
+
+
+    .content {
+
+        padding: 14px;
+    }
+
+
+    .spreadsheet-container {
+
+        border-radius: 20px;
+    }
+
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+@media (prefers-color-scheme: dark) {
+
+    html,
+    body {
+
+        background: #160d11;
+    }
+
+
+    .app {
+
+        background:
+
+            radial-gradient(
+                circle at 90% -10%,
+                rgba(255,71,126,.16),
+                transparent 32%
+            ),
+
+            #160d11;
+    }
+
+
+    .header {
+
+        background:
+            rgba(28,18,22,.88);
+
+        border-bottom-color:
+            rgba(255,255,255,.07);
+    }
+
+
+    .title {
+
+        color: #ffffff;
+    }
+
+
+    .subtitle {
+
+        color: #98989f;
+    }
+
+
+    .refresh-button {
+
+        background:
+            rgba(255,255,255,.08);
+
+        border-color:
+            rgba(255,255,255,.06);
+    }
+
+
+    .spreadsheet-container {
+
+        border-color:
+            rgba(255,255,255,.08);
+
+        box-shadow:
+            0 12px 35px
+            rgba(0,0,0,.25);
+    }
+
+
+    .loading-screen {
+
+        background:
+            rgba(28,18,22,.98);
+    }
+
+
+    .loading-title {
+
+        color: #ffffff;
+    }
+
+}
+
+
+/* =========================================================
+   REDUÇÃO DE ANIMAÇÕES
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            .01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            .01ms !important;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="header">
+
+
+        <div class="brand">
+
+
+            <div class="logo">
+                💝
+            </div>
+
+
+            <div class="title-container">
+
+
+                <div class="title">
+                    Love Price 💝💸
+                </div>
+
+
+                <div class="subtitle">
+
+                    <span class="online-dot"></span>
+
+                    Controle financeiro
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+        <button
+            type="button"
+            class="refresh-button"
+            id="refreshButton"
+            aria-label="Atualizar planilha"
+            title="Atualizar planilha">
+
+
+            <span class="refresh-icon">
+                ↻
+            </span>
+
+
+        </button>
+
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main class="content">
+
+
+        <div class="spreadsheet-container">
+
+
+            <!-- =================================================
+                 LOADING
+            ================================================== -->
+
+            <div
+                class="loading-screen"
+                id="loadingScreen">
+
+
+                <div class="loading-logo">
+                    💝
+                </div>
+
+
+                <div class="loading-title">
+                    Love Price
+                </div>
+
+
+                <div class="loading-text">
+                    Carregando sua vida financeira...
+                </div>
+
+
+                <div class="spinner"></div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 EXCEL
+            ================================================== -->
+
+            <iframe
+                id="spreadsheet"
+                class="spreadsheet"
+
+                src="https://1drv.ms/x/c/762904bb730f7dc5/IQRnQPaHajJ9SZ-4F6AKAe2TAYpW60J1d1Lp4v_loGXIn9M?wdAllowInteractivity=False&AllowTyping=True&ActiveCell='Mobile'!D6&Item='Mobile'!A1%3AG76&wdHideGridlines=True&wdHideHeaders=True&wdInConfigurator=True"
+
+                frameborder="0"
+
+                scrolling="no"
+
+                title="Planilha Love Price">
+
+            </iframe>
+
+
+        </div>
+
+
+
+        <!-- =====================================================
+             STATUS
+        ====================================================== -->
+
+        <div
+            class="status"
+            id="status"
+            role="status"
+            aria-live="polite">
+
+
+            <span class="status-icon">
+                ✓
+            </span>
+
+
+            Aplicativo atualizado
+
+
+        </div>
+
+
+    </main>
+
+
+</div>
+
+
+
+<script>
+
+/* =========================================================
+   ELEMENTOS
+========================================================= */
+
+const iframe =
+    document.getElementById(
+        "spreadsheet"
+    );
+
+
+const loadingScreen =
+    document.getElementById(
+        "loadingScreen"
+    );
+
+
+const refreshButton =
+    document.getElementById(
+        "refreshButton"
+    );
+
+
+const status =
+    document.getElementById(
+        "status"
+    );
+
+
+let isRefreshing = false;
+
+let statusTimeout = null;
+
+
+/* =========================================================
+   EXCEL CARREGOU
+========================================================= */
+
+iframe.addEventListener(
+    "load",
+    function () {
+
+        /*
+         * Pequeno atraso para o Excel
+         * terminar de montar sua interface.
+         */
+
+        setTimeout(
+            function () {
+
+                loadingScreen
+                    .classList
+                    .add("hidden");
+
+            },
+            350
+        );
+
+
+        /*
+         * Para animação do botão.
+         */
+
+        refreshButton
+            .classList
+            .remove("loading");
+
+
+        /*
+         * Se foi uma atualização,
+         * mostra confirmação.
+         */
+
+        if (isRefreshing) {
+
+            isRefreshing = false;
+
+            showStatus();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   ATUALIZAR PLANILHA
+========================================================= */
+
+function refreshSpreadsheet() {
+
+    if (isRefreshing) {
+
+        return;
+
+    }
+
+
+    isRefreshing = true;
+
+
+    /*
+     * Mostra novamente a tela de carregamento.
+     */
+
+    loadingScreen
+        .classList
+        .remove("hidden");
+
+
+    /*
+     * Anima botão.
+     */
+
+    refreshButton
+        .classList
+        .add("loading");
+
+
+    /*
+     * Recarrega somente o iframe.
+     *
+     * O restante do aplicativo
+     * permanece completamente fixo.
+     */
+
+    const currentSrc =
+        iframe.getAttribute("src");
+
+
+    iframe.setAttribute(
+        "src",
+        currentSrc
+    );
+
+}
+
+
+/* =========================================================
+   BOTÃO
+========================================================= */
+
+refreshButton.addEventListener(
+    "click",
+    function () {
+
+        refreshSpreadsheet();
+
+    }
+);
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+function showStatus() {
+
+    clearTimeout(
+        statusTimeout
+    );
+
+
+    status
+        .classList
+        .add("show");
+
+
+    statusTimeout =
+        setTimeout(
+            function () {
+
+                status
+                    .classList
+                    .remove("show");
+
+            },
+            1800
+        );
+
+}
+
+
+/* =========================================================
+   SERVICE WORKER
+========================================================= */
+
+if (
+    "serviceWorker"
+    in navigator
+) {
+
+    window.addEventListener(
+        "load",
+        function () {
+
+            navigator.serviceWorker
+
+                .register(
+                    "./service-worker.js"
+                )
+
+                .then(
+                    function (registration) {
+
+                        console.log(
+                            "Service Worker registrado:",
+                            registration.scope
+                        );
+
+                    }
+                )
+
+                .catch(
+                    function (error) {
+
+                        console.error(
+                            "Erro ao registrar Service Worker:",
+                            error
+                        );
+
+                    }
+                );
+
+        }
+    );
+
+}
+
+</script>
+
+
+</body>
+
+</html>

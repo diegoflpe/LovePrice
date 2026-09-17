@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no,
+                   viewport-fit=cover">
+
+    <!-- PWA -->
+    <meta name="theme-color" content="#fff7fa">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Love Price">
+
+    <link rel="manifest" href="./manifest.json">
+    <link rel="apple-touch-icon" href="./icons/icon-192.png">
+
+    <title>Love Price 💝</title>
+
+    <style>
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "SF Pro Display",
+                "SF Pro Text",
+                Inter,
+                Helvetica,
+                Arial,
+                sans-serif;
+
+            background: #fff7fa;
+            color: #1c1c1e;
+        }
+
+
+        /* =========================================================
+           APP
+        ========================================================= */
+
+        .app {
+            position: fixed;
+            inset: 0;
+
+            display: flex;
+            flex-direction: column;
+
+            padding-top: env(safe-area-inset-top);
+            padding-bottom: env(safe-area-inset-bottom);
+
+            background:
+                radial-gradient(
+                    circle at 90% -10%,
+                    rgba(255, 105, 145, .18),
+                    transparent 32%
+                ),
+                radial-gradient(
+                    circle at -10% 20%,
+                    rgba(255, 180, 205, .18),
+                    transparent 30%
+                ),
+                #fff7fa;
+        }
+
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        .header {
+            position: relative;
+            z-index: 20;
+
+            height: 72px;
+            min-height: 72px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 18px;
+
+            background: rgba(255, 255, 255, .78);
+
+            border-bottom: 1px solid rgba(255, 79, 129, .10);
+
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+
+            box-shadow:
+                0 1px 0 rgba(255,255,255,.8),
+                0 8px 30px rgba(80, 20, 40, .04);
+        }
+
+
+        /* =========================================================
+           BRAND
+        ========================================================= */
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+
+            min-width: 0;
+        }
+
+
+        .logo {
+            position: relative;
+
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            flex-shrink: 0;
+
+            border-radius: 14px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #ff477e 0%,
+                    #ff6b9a 55%,
+                    #ff8daf 100%
+                );
+
+            box-shadow:
+                0 8px 18px rgba(255, 71, 126, .24),
+                inset 0 1px 0 rgba(255,255,255,.35);
+
+            font-size: 21px;
+
+            animation: logoFloat 4s ease-in-out infinite;
+        }
+
+
+        .logo::after {
+            content: "";
+
+            position: absolute;
+            inset: 1px;
+
+            border-radius: 13px;
+
+            border: 1px solid rgba(255,255,255,.22);
+
+            pointer-events: none;
+        }
+
+
+        .title-container {
+            min-width: 0;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+
+        .title {
+            color: #1c1c1e;
+
+            font-size: 18px;
+            line-height: 21px;
+            font-weight: 750;
+
+            letter-spacing: -.35px;
+
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+
+        .subtitle {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            margin-top: 2px;
+
+            color: #8e8e93;
+
+            font-size: 11px;
+            line-height: 15px;
+
+            font-weight: 500;
+        }
+
+
+        .online-dot {
+            width: 6px;
+            height: 6px;
+
+            border-radius: 50%;
+
+            background: #34c759;
+
+            box-shadow:
+                0 0 0 3px rgba(52,199,89,.10);
+        }
+
+
+        /* =========================================================
+           REFRESH
+        ========================================================= */
+
+        .refresh-button {
+            position: relative;
+
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            flex-shrink: 0;
+
+            border: 1px solid rgba(0,0,0,.05);
+            border-radius: 14px;
+
+            background: rgba(255,255,255,.78);
+
+            color: #ff477e;
+
+            font-size: 21px;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 5px 16px rgba(80,20,40,.07);
+
+            transition:
+                transform .18s ease,
+                background .18s ease,
+                box-shadow .18s ease;
+        }
+
+
+        .refresh-button::before {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            border-radius: inherit;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,.7),
+                    transparent
+                );
+
+            pointer-events: none;
+        }
+
+
+        .refresh-button:active {
+            transform: scale(.90);
+
+            background: #fff;
+
+            box-shadow:
+                0 2px 7px rgba(80,20,40,.08);
+        }
+
+
+        .refresh-icon {
+            display: block;
+
+            line-height: 1;
+
+            transition: transform .2s ease;
+        }
+
+
+        .refresh-button.loading .refresh-icon {
+            animation: spin .75s linear infinite;
+        }
+
+
+        /* =========================================================
+           CONTENT
+        ========================================================= */
+
+        .content {
+            position: relative;
+
+            flex: 1;
+
+            width: 100%;
+            min-height: 0;
+
+            padding: 10px 10px 8px;
+
+            overflow: hidden;
+        }
+
+
+        /* =========================================================
+           PLANILHA / CARD
+        ========================================================= */
+
+        .spreadsheet-container {
+            position: relative;
+
+            width: 100%;
+            height: 100%;
+
+            overflow: hidden;
+
+            border-radius: 18px;
+
+            background: #fff;
+
+            border: 1px solid rgba(255, 79, 129, .08);
+
+            box-shadow:
+                0 12px 35px rgba(85, 25, 45, .07),
+                0 2px 8px rgba(85, 25, 45, .04);
+        }
+
+
+        .spreadsheet {
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            border: 0;
+
+            background: white;
+        }
+
+
+        /* =========================================================
+           LOADING
+        ========================================================= */
+
+        .loading-screen {
+            position: absolute;
+            inset: 0;
+
+            z-index: 10;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                radial-gradient(
+                    circle at 50% 40%,
+                    rgba(255, 105, 145, .08),
+                    transparent 35%
+                ),
+                rgba(255,255,255,.97);
+
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+
+            opacity: 1;
+            visibility: visible;
+
+            transition:
+                opacity .35s ease,
+                visibility .35s ease;
+        }
+
+
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+
+        .loading-logo {
+            width: 68px;
+            height: 68px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 21px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #ff477e,
+                    #ff7da5
+                );
+
+            box-shadow:
+                0 12px 32px rgba(255,71,126,.25),
+                inset 0 1px 0 rgba(255,255,255,.4);
+
+            font-size: 32px;
+
+            animation:
+                loadingPulse 1.6s ease-in-out infinite;
+        }
+
+
+        .loading-title {
+            margin-top: 20px;
+
+            color: #1c1c1e;
+
+            font-size: 20px;
+            line-height: 24px;
+
+            font-weight: 750;
+
+            letter-spacing: -.4px;
+        }
+
+
+        .loading-text {
+            margin-top: 5px;
+
+            color: #8e8e93;
+
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+
+        .spinner {
+            width: 25px;
+            height: 25px;
+
+            margin-top: 18px;
+
+            border-radius: 50%;
+
+            border:
+                3px solid rgba(255,71,126,.12);
+
+            border-top-color: #ff477e;
+
+            animation: spin .75s linear infinite;
+        }
+
+
+        /* =========================================================
+           STATUS
+        ========================================================= */
+
+        .status {
+            position: absolute;
+
+            left: 50%;
+            bottom: 22px;
+
+            z-index: 30;
+
+            display: flex;
+            align-items: center;
+            gap: 7px;
+
+            padding: 10px 15px;
+
+            border-radius: 14px;
+
+            background:
+                rgba(28,28,30,.92);
+
+            color: #fff;
+
+            font-size: 12px;
+            font-weight: 600;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,.18);
+
+            opacity: 0;
+            visibility: hidden;
+
+            transform:
+                translate(-50%, 10px)
+                scale(.96);
+
+            transition:
+                opacity .25s ease,
+                visibility .25s ease,
+                transform .25s ease;
+
+            white-space: nowrap;
+        }
+
+
+        .status.show {
+            opacity: 1;
+            visibility: visible;
+
+            transform:
+                translate(-50%, 0)
+                scale(1);
+        }
+
+
+        .status-icon {
+            width: 16px;
+            height: 16px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #34c759;
+
+            color: white;
+
+            font-size: 10px;
+            font-weight: 800;
+        }
+
+
+        /* =========================================================
+           ANIMAÇÕES
+        ========================================================= */
+
+        @keyframes spin {
+
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+
+
+        @keyframes logoFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-2px);
+            }
+
+        }
+
+
+        @keyframes loadingPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow:
+                    0 12px 32px rgba(255,71,126,.22);
+            }
+
+            50% {
+                transform: scale(1.045);
+                box-shadow:
+                    0 15px 38px rgba(255,71,126,.30);
+            }
+
+        }
+
+
+        /* =========================================================
+           TELAS PEQUENAS
+        ========================================================= */
+
+        @media (max-width: 380px) {
+
+            .header {
+                height: 66px;
+                min-height: 66px;
+
+                padding-left: 13px;
+                padding-right: 13px;
+            }
+
+            .logo {
+                width: 38px;
+                height: 38px;
+
+                border-radius: 12px;
+
+                font-size: 19px;
+            }
+
+            .title {
+                font-size: 16px;
+            }
+
+            .subtitle {
+                font-size: 10px;
+            }
+
+            .refresh-button {
+                width: 39px;
+                height: 39px;
+
+                border-radius: 13px;
+            }
+
+            .content {
+                padding: 7px;
+            }
+
+            .spreadsheet-container {
+                border-radius: 15px;
+            }
+
+        }
+
+
+        /* =========================================================
+           TABLET / DESKTOP
+        ========================================================= */
+
+        @media (min-width: 768px) {
+
+            .header {
+                padding-left: 24px;
+                padding-right: 24px;
+            }
+
+            .content {
+                padding:
+                    16px
+                    max(16px, env(safe-area-inset-right))
+                    16px
+                    max(16px, env(safe-area-inset-left));
+            }
+
+            .spreadsheet-container {
+                border-radius: 20px;
+            }
+
+        }
+
+
+        /* =========================================================
+           DARK MODE
+        ========================================================= */
+
+        @media (prefers-color-scheme: dark) {
+
+            html,
+            body {
+                background: #160d11;
+                color: #fff;
+            }
+
+            .app {
+                background:
+                    radial-gradient(
+                        circle at 90% -10%,
+                        rgba(255, 71, 126, .16),
+                        transparent 32%
+                    ),
+                    #160d11;
+            }
+
+            .header {
+                background: rgba(28,18,22,.78);
+
+                border-bottom-color:
+                    rgba(255,255,255,.07);
+            }
+
+            .title {
+                color: #fff;
+            }
+
+            .subtitle {
+                color: #98989f;
+            }
+
+            .refresh-button {
+                background: rgba(255,255,255,.08);
+
+                border-color:
+                    rgba(255,255,255,.06);
+            }
+
+            .spreadsheet-container {
+                border-color:
+                    rgba(255,255,255,.06);
+
+                box-shadow:
+                    0 12px 35px rgba(0,0,0,.25);
+            }
+
+        }
+
+
+        /* =========================================================
+           ACESSIBILIDADE
+        ========================================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="app">
+
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
+
+    <header class="header">
+
+        <div class="brand">
+
+            <div class="logo">
+                💝
+            </div>
+
+            <div class="title-container">
+
+                <div class="title">
+                    Love Price 💝💸
+                </div>
+
+                <div class="subtitle">
+
+                    <span class="online-dot"></span>
+
+                    Controle financeiro
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="refresh-button"
+            id="refreshButton"
+            aria-label="Atualizar planilha"
+            title="Atualizar">
+
+            <span class="refresh-icon">↻</span>
+
+        </button>
+
+    </header>
+
+
+    <!-- =========================================================
+         CONTEÚDO
+    ========================================================== -->
+
+    <main class="content">
+
+        <div class="spreadsheet-container">
+
+            <!-- =================================================
+                 LOADING
+            ================================================== -->
+
+            <div
+                class="loading-screen"
+                id="loadingScreen">
+
+                <div class="loading-logo">
+                    💝
+                </div>
+
+                <div class="loading-title">
+                    Love Price
+                </div>
+
+                <div class="loading-text">
+                    Carregando sua vida financeira...
+                </div>
+
+                <div class="spinner"></div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PLANILHA
+            ================================================== -->
+
+            <iframe
+                id="spreadsheet"
+                class="spreadsheet"
+
+                src="https://1drv.ms/x/c/762904bb730f7dc5/IQRnQPaHajJ9SZ-4F6AKAe2TAYpW60J1d1Lp4v_loGXIn9M?wdAllowInteractivity=False&AllowTyping=True&ActiveCell='Mobile'!D6&Item='Mobile'!A1%3AG76&wdHideGridlines=True&wdHideHeaders=True&wdInConfigurator=True"
+
+                frameborder="0"
+                scrolling="no"
+
+                title="Planilha Love Price">
+
+            </iframe>
+
+        </div>
+
+
+        <!-- =====================================================
+             STATUS
+        ====================================================== -->
+
+        <div
+            class="status"
+            id="status"
+            role="status"
+            aria-live="polite">
+
+            <span class="status-icon">✓</span>
+
+            Aplicativo atualizado
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script>
+
+    /* =========================================================
+       ELEMENTOS
+    ========================================================= */
+
+    const iframe =
+        document.getElementById("spreadsheet");
+
+    const loadingScreen =
+        document.getElementById("loadingScreen");
+
+    const refreshButton =
+        document.getElementById("refreshButton");
+
+    const status =
+        document.getElementById("status");
+
+
+    /* =========================================================
+       ESTADO
+    ========================================================= */
+
+    let statusTimeout;
+
+
+    /* =========================================================
+       ESCONDER LOADING
+    ========================================================= */
+
+    iframe.addEventListener("load", function () {
+
+        setTimeout(() => {
+
+            loadingScreen.classList.add("hidden");
+
+        }, 450);
+
+    });
+
+
+    /* =========================================================
+       ATUALIZAR PLANILHA
+    ========================================================= */
+
+    function refreshSpreadsheet() {
+
+        refreshButton.classList.add("loading");
+
+        loadingScreen.classList.remove("hidden");
+
+
+        /*
+         * Recarrega o iframe.
+         */
+
+        iframe.src = iframe.src;
+
+
+        /*
+         * Fallback caso o OneDrive demore
+         * ou não dispare o evento esperado.
+         */
+
+        setTimeout(() => {
+
+            refreshButton.classList.remove("loading");
+
+        }, 2000);
+
+    }
+
+
+    /* =========================================================
+       STATUS
+    ========================================================= */
+
+    function showStatus() {
+
+        clearTimeout(statusTimeout);
+
+        status.classList.add("show");
+
+
+        statusTimeout = setTimeout(() => {
+
+            status.classList.remove("show");
+
+        }, 1800);
+
+    }
+
+
+    /* =========================================================
+       QUANDO O IFRAME TERMINAR DE CARREGAR
+    ========================================================= */
+
+    iframe.addEventListener("load", function () {
+
+        loadingScreen.classList.add("hidden");
+
+        refreshButton.classList.remove("loading");
+
+        /*
+         * Não mostrar status no primeiro carregamento.
+         * O status aparece somente depois de uma atualização.
+         */
+
+        if (refreshButton.dataset.refreshing === "true") {
+
+            refreshButton.dataset.refreshing = "false";
+
+            showStatus();
+
+        }
+
+    });
+
+
+    /* =========================================================
+       BOTÃO
+    ========================================================= */
+
+    refreshButton.addEventListener("click", function () {
+
+        refreshButton.dataset.refreshing = "true";
+
+        refreshSpreadsheet();
+
+    });
+
+
+    /* =========================================================
+       SERVICE WORKER
+    ========================================================= */
+
+    if ("serviceWorker" in navigator) {
+
+        window.addEventListener("load", () => {
+
+            navigator.serviceWorker
+                .register("./service-worker.js")
+
+                .then(registration => {
+
+                    console.log(
+                        "Service Worker registrado:",
+                        registration.scope
+                    );
+
+                })
+
+                .catch(error => {
+
+                    console.error(
+                        "Erro ao registrar Service Worker:",
+                        error
+                    );
+
+                });
+
+        });
+
+    }
+
+</script>
+
+</body>
+
+</html>

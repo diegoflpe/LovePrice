@@ -3,954 +3,986 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport"
-      content="width=device-width,
-               initial-scale=1.0,
-               maximum-scale=1.0,
-               user-scalable=no,
-               viewport-fit=cover">
+    <meta name="viewport"
+          content="width=device-width,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no,
+                   viewport-fit=cover">
 
-<!-- PWA -->
-<meta name="theme-color" content="#fff7fa">
+    <!-- =========================================================
+         PWA
+    ========================================================== -->
 
-<meta name="apple-mobile-web-app-capable"
-      content="yes">
+    <meta name="theme-color" content="#fff7fa">
 
-<meta name="apple-mobile-web-app-status-bar-style"
-      content="default">
+    <meta name="apple-mobile-web-app-capable"
+          content="yes">
 
-<meta name="apple-mobile-web-app-title"
-      content="Love Price 💝💸">
+    <meta name="apple-mobile-web-app-status-bar-style"
+          content="default">
 
-<link rel="manifest"
-      href="./manifest.json">
+    <meta name="apple-mobile-web-app-title"
+          content="Love Price 💝💸">
 
-<link rel="apple-touch-icon"
-      href="./icons/icon-192.png">
+    <link rel="manifest"
+          href="./manifest.json">
 
-<title>Love Price 💝💸</title>
+    <link rel="apple-touch-icon"
+          href="./icons/icon-192.png">
 
 
-<style>
+    <title>Love Price 💝💸</title>
 
-/* =========================================================
-   RESET
-========================================================= */
 
-*,
-*::before,
-*::after {
+    <style>
 
-    margin: 0;
-    padding: 0;
+        /* =========================================================
+           RESET
+        ========================================================= */
 
-    box-sizing: border-box;
+        *,
+        *::before,
+        *::after {
 
-    -webkit-tap-highlight-color: transparent;
-}
+            margin: 0;
+            padding: 0;
 
+            box-sizing: border-box;
 
-html,
-body {
+            -webkit-tap-highlight-color: transparent;
 
-    width: 100%;
-    height: 100%;
+        }
 
-    margin: 0;
-    padding: 0;
 
-    overflow: hidden;
+        html,
+        body {
 
-    background: #fff7fa;
+            width: 100%;
+            height: 100%;
 
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "SF Pro Display",
-        "SF Pro Text",
-        Helvetica,
-        Arial,
-        sans-serif;
+            margin: 0;
+            padding: 0;
 
-    color: #1c1c1e;
-}
+            overflow: hidden;
 
+            background: #fff7fa;
 
-/* =========================================================
-   APP
-========================================================= */
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "SF Pro Display",
+                "SF Pro Text",
+                Helvetica,
+                Arial,
+                sans-serif;
 
-.app {
+            color: #1c1c1e;
 
-    position: fixed;
+        }
 
-    inset: 0;
 
-    width: 100%;
-    height: 100%;
+        /* =========================================================
+           APP
+        ========================================================= */
 
-    display: flex;
+        .app {
 
-    flex-direction: column;
+            position: fixed;
 
-    overflow: hidden;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
 
-    padding-top:
-        env(safe-area-inset-top);
+            width: 100%;
+            height: 100%;
 
-    padding-bottom:
-        env(safe-area-inset-bottom);
+            display: flex;
+            flex-direction: column;
 
-    background:
+            overflow: hidden;
 
-        radial-gradient(
-            circle at 90% -10%,
-            rgba(255,105,145,.16),
-            transparent 32%
-        ),
+            padding-top: env(safe-area-inset-top);
 
-        radial-gradient(
-            circle at -10% 20%,
-            rgba(255,180,205,.14),
-            transparent 30%
-        ),
+            background:
 
-        #fff7fa;
-}
+                radial-gradient(
+                    circle at 90% -10%,
+                    rgba(255, 105, 145, .16),
+                    transparent 32%
+                ),
 
+                radial-gradient(
+                    circle at -10% 20%,
+                    rgba(255, 180, 205, .14),
+                    transparent 30%
+                ),
 
-/* =========================================================
-   HEADER
-========================================================= */
+                #fff7fa;
 
-.header {
+        }
 
-    position: relative;
 
-    z-index: 100;
+        /* =========================================================
+           HEADER
+        ========================================================= */
 
-    width: 100%;
+        .header {
 
-    height: 70px;
-    min-height: 70px;
+            position: relative;
 
-    flex-shrink: 0;
+            z-index: 100;
 
-    display: flex;
+            width: 100%;
 
-    align-items: center;
+            height: 70px;
+            min-height: 70px;
 
-    justify-content: space-between;
+            flex-shrink: 0;
 
-    padding:
-        0 17px;
+            display: flex;
 
-    background:
-        rgba(255,255,255,.86);
+            align-items: center;
 
-    border-bottom:
-        1px solid
-        rgba(255,79,129,.09);
+            justify-content: space-between;
 
-    backdrop-filter:
-        blur(24px)
-        saturate(180%);
+            padding-left: 17px;
+            padding-right: 17px;
 
-    -webkit-backdrop-filter:
-        blur(24px)
-        saturate(180%);
+            background:
+                rgba(255, 255, 255, .86);
 
-    box-shadow:
-        0 4px 20px
-        rgba(80,20,40,.04);
-}
+            border-bottom:
+                1px solid rgba(255, 79, 129, .09);
 
+            backdrop-filter:
+                blur(24px)
+                saturate(180%);
 
-/* =========================================================
-   BRAND
-========================================================= */
+            -webkit-backdrop-filter:
+                blur(24px)
+                saturate(180%);
 
-.brand {
+            box-shadow:
+                0 4px 20px rgba(80, 20, 40, .04);
 
-    display: flex;
+        }
 
-    align-items: center;
 
-    gap: 11px;
+        /* =========================================================
+           BRAND
+        ========================================================= */
 
-    min-width: 0;
-}
+        .brand {
 
+            display: flex;
 
-/* =========================================================
-   LOGO
-========================================================= */
+            align-items: center;
 
-.logo {
+            gap: 11px;
 
-    width: 42px;
-    height: 42px;
+            min-width: 0;
 
-    flex-shrink: 0;
+        }
 
-    display: flex;
 
-    align-items: center;
-    justify-content: center;
+        /* =========================================================
+           LOGO
+        ========================================================= */
 
-    border-radius: 14px;
+        .logo {
 
-    background:
-        linear-gradient(
-            145deg,
-            #ff477e,
-            #ff6b9a 55%,
-            #ff8daf
-        );
+            width: 42px;
+            height: 42px;
 
-    box-shadow:
+            flex-shrink: 0;
 
-        0 7px 18px
-        rgba(255,71,126,.24),
+            display: flex;
 
-        inset 0 1px 0
-        rgba(255,255,255,.35);
+            align-items: center;
+            justify-content: center;
 
-    font-size: 21px;
-}
+            border-radius: 14px;
 
+            background:
+                linear-gradient(
+                    145deg,
+                    #ff477e 0%,
+                    #ff6b9a 55%,
+                    #ff8daf 100%
+                );
 
-/* =========================================================
-   TÍTULO
-========================================================= */
+            box-shadow:
 
-.title-container {
+                0 7px 18px
+                rgba(255, 71, 126, .24),
 
-    min-width: 0;
+                inset 0 1px 0
+                rgba(255, 255, 255, .35);
 
-    display: flex;
+            font-size: 21px;
 
-    flex-direction: column;
+        }
 
-    justify-content: center;
-}
 
+        /* =========================================================
+           TÍTULO
+        ========================================================= */
 
-.title {
+        .title-container {
 
-    color: #1c1c1e;
+            min-width: 0;
 
-    font-size: 18px;
+            display: flex;
 
-    line-height: 21px;
+            flex-direction: column;
 
-    font-weight: 750;
+            justify-content: center;
 
-    letter-spacing: -.35px;
+        }
 
-    white-space: nowrap;
 
-    overflow: hidden;
+        .title {
 
-    text-overflow: ellipsis;
-}
+            color: #1c1c1e;
 
+            font-size: 18px;
 
-.subtitle {
+            line-height: 21px;
 
-    display: flex;
+            font-weight: 750;
 
-    align-items: center;
+            letter-spacing: -.35px;
 
-    gap: 6px;
+            white-space: nowrap;
 
-    margin-top: 3px;
+            overflow: hidden;
 
-    color: #8e8e93;
+            text-overflow: ellipsis;
 
-    font-size: 11px;
+        }
 
-    line-height: 14px;
 
-    font-weight: 500;
-}
+        .subtitle {
 
+            display: flex;
 
-/* =========================================================
-   INDICADOR ONLINE
-========================================================= */
+            align-items: center;
 
-.online-dot {
+            gap: 6px;
 
-    width: 6px;
-    height: 6px;
+            margin-top: 3px;
 
-    flex-shrink: 0;
+            color: #8e8e93;
 
-    border-radius: 50%;
+            font-size: 11px;
 
-    background: #34c759;
+            line-height: 14px;
 
-    box-shadow:
-        0 0 0 3px
-        rgba(52,199,89,.10);
-}
+            font-weight: 500;
 
+        }
 
-/* =========================================================
-   BOTÃO ATUALIZAR
-========================================================= */
 
-.refresh-button {
+        /* =========================================================
+           INDICADOR ONLINE
+        ========================================================= */
 
-    width: 42px;
-    height: 42px;
+        .online-dot {
 
-    flex-shrink: 0;
+            width: 6px;
+            height: 6px;
 
-    display: flex;
+            flex-shrink: 0;
 
-    align-items: center;
-    justify-content: center;
+            border-radius: 50%;
 
-    border:
-        1px solid
-        rgba(0,0,0,.05);
+            background: #34c759;
 
-    border-radius: 14px;
+            box-shadow:
+                0 0 0 3px
+                rgba(52, 199, 89, .10);
 
-    background:
-        rgba(255,255,255,.80);
+        }
 
-    color: #ff477e;
 
-    font-size: 22px;
+        /* =========================================================
+           BOTÃO ATUALIZAR
+        ========================================================= */
 
-    cursor: pointer;
+        .refresh-button {
 
-    box-shadow:
-        0 5px 15px
-        rgba(80,20,40,.07);
+            position: relative;
 
-    transition:
-        transform .15s ease,
-        background .15s ease;
+            width: 42px;
+            height: 42px;
 
-    -webkit-appearance: none;
-}
+            flex-shrink: 0;
 
+            display: flex;
 
-.refresh-button:active {
+            align-items: center;
+            justify-content: center;
 
-    transform: scale(.90);
+            border: 1px solid
+                rgba(0, 0, 0, .05);
 
-    background: #ffffff;
-}
+            border-radius: 14px;
 
+            background:
+                rgba(255, 255, 255, .80);
 
-.refresh-icon {
+            color: #ff477e;
 
-    display: block;
+            font-size: 22px;
 
-    line-height: 1;
-}
+            cursor: pointer;
 
+            box-shadow:
+                0 5px 15px
+                rgba(80, 20, 40, .07);
 
-.refresh-button.loading
-.refresh-icon {
+            transition:
+                transform .15s ease,
+                background .15s ease;
 
-    animation:
-        spin
-        .75s
-        linear
-        infinite;
-}
+            -webkit-appearance: none;
 
+        }
 
-/* =========================================================
-   ÁREA PRINCIPAL
-========================================================= */
 
-.content {
+        .refresh-button:active {
 
-    position: relative;
+            transform: scale(.90);
 
-    width: 100%;
+            background: #ffffff;
 
-    flex: 1 1 auto;
+        }
 
-    min-width: 0;
-    min-height: 0;
 
-    overflow: hidden;
+        .refresh-icon {
 
-    /*
-     * Espaço ao redor do Excel.
-     */
+            display: block;
 
-    padding:
-        10px;
+            line-height: 1;
 
-    background: transparent;
-}
+        }
 
 
-/* =========================================================
-   CARD DA PLANILHA
-========================================================= */
+        .refresh-button.loading
+        .refresh-icon {
 
-.spreadsheet-container {
+            animation:
+                spin .75s linear infinite;
 
-    position: relative;
+        }
 
-    width: 100%;
-    height: 100%;
 
-    min-width: 0;
-    min-height: 0;
+        /* =========================================================
+           ÁREA DO CONTEÚDO
+        ========================================================= */
 
-    overflow: hidden;
+        .content {
 
-    /*
-     * BORDAS ARREDONDADAS
-     */
+            position: relative;
 
-    border-radius: 18px;
+            width: 100%;
 
-    /*
-     * Borda extremamente sutil.
-     */
+            /*
+             * Ocupa somente o espaço restante
+             * abaixo do header.
+             */
 
-    border:
-        1px solid
-        rgba(255,79,129,.10);
+            flex: 1 1 auto;
 
-    background: #ffffff;
+            min-width: 0;
+            min-height: 0;
 
-    /*
-     * Sombra do aplicativo.
-     */
+            overflow: hidden;
 
-    box-shadow:
+            padding: 0;
 
-        0 12px 35px
-        rgba(85,25,45,.08),
+            background: #ffffff;
 
-        0 2px 8px
-        rgba(85,25,45,.04);
+        }
 
-    /*
-     * Evita bounce do container.
-     */
 
-    overscroll-behavior:
-        none;
+        /* =========================================================
+           CONTAINER DO EXCEL
+        ========================================================= */
 
-    /*
-     * Muito importante:
-     * mantém o iframe recortado dentro
-     * das bordas arredondadas.
-     */
+        .spreadsheet-container {
 
-    isolation: isolate;
-}
+            position: absolute;
 
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
 
-/* =========================================================
-   IFRAME DO EXCEL
-========================================================= */
+            width: 100%;
+            height: 100%;
 
-.spreadsheet {
+            min-width: 0;
+            min-height: 0;
 
-    /*
-     * O iframe fica preso aos quatro lados
-     * do card.
-     */
+            overflow: hidden;
 
-    position: absolute;
+            background: #ffffff;
 
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+            border: 0;
 
-    width: 100%;
-    height: 100%;
+            border-radius: 0;
 
-    min-width: 0;
-    min-height: 0;
+            box-shadow: none;
 
-    display: block;
+            /*
+             * Evita efeitos de "bounce"
+             * no container.
+             */
 
-    margin: 0;
-    padding: 0;
+            overscroll-behavior:
+                none;
 
-    border: 0;
+            -webkit-overflow-scrolling:
+                auto;
 
-    background: #ffffff;
+        }
 
-    /*
-     * NÃO usar transform.
-     *
-     * NÃO usar scale.
-     *
-     * NÃO usar translate.
-     */
 
-    transform: none;
+        /* =========================================================
+           IFRAME DO EXCEL
+        ========================================================= */
 
-    /*
-     * Evita o iframe participar
-     * de qualquer rolagem da página.
-     */
+        .spreadsheet {
 
-    overscroll-behavior:
-        none;
-}
+            position: absolute;
 
+            top: 0;
+            left: 0;
 
-/* =========================================================
-   LOADING
-========================================================= */
+            width: 100%;
+            height: 100%;
 
-.loading-screen {
+            min-width: 100%;
+            min-height: 100%;
 
-    position: absolute;
+            display: block;
 
-    inset: 0;
+            margin: 0;
+            padding: 0;
 
-    z-index: 50;
+            border: 0;
 
-    display: flex;
+            background: #ffffff;
 
-    flex-direction: column;
+            /*
+             * Não aplicar scale.
+             * Não aplicar translate.
+             * Não aplicar zoom.
+             *
+             * O Excel ocupa exatamente o container.
+             */
 
-    align-items: center;
+            transform: none;
 
-    justify-content: center;
+            overflow: hidden;
 
-    border-radius: inherit;
+        }
 
-    background:
-        rgba(255,255,255,.98);
 
-    backdrop-filter:
-        blur(12px);
+        /* =========================================================
+           LOADING
+        ========================================================= */
 
-    -webkit-backdrop-filter:
-        blur(12px);
+        .loading-screen {
 
-    opacity: 1;
+            position: absolute;
 
-    visibility: visible;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
 
-    transition:
-        opacity .35s ease,
-        visibility .35s ease;
-}
+            z-index: 50;
 
+            display: flex;
 
-.loading-screen.hidden {
+            flex-direction: column;
 
-    opacity: 0;
+            align-items: center;
 
-    visibility: hidden;
+            justify-content: center;
 
-    pointer-events: none;
-}
+            background:
+                rgba(255, 255, 255, .98);
 
+            backdrop-filter:
+                blur(12px);
 
-/* =========================================================
-   LOGO LOADING
-========================================================= */
+            -webkit-backdrop-filter:
+                blur(12px);
 
-.loading-logo {
+            opacity: 1;
 
-    width: 68px;
-    height: 68px;
+            visibility: visible;
 
-    display: flex;
+            transition:
+                opacity .35s ease,
+                visibility .35s ease;
 
-    align-items: center;
-    justify-content: center;
+        }
 
-    border-radius: 21px;
 
-    background:
-        linear-gradient(
-            145deg,
-            #ff477e,
-            #ff7da5
-        );
+        .loading-screen.hidden {
 
-    box-shadow:
+            opacity: 0;
 
-        0 12px 32px
-        rgba(255,71,126,.25),
+            visibility: hidden;
 
-        inset 0 1px 0
-        rgba(255,255,255,.4);
+            pointer-events: none;
 
-    font-size: 32px;
+        }
 
-    animation:
-        loadingPulse
-        1.6s
-        ease-in-out
-        infinite;
-}
 
+        /* =========================================================
+           LOGO DO LOADING
+        ========================================================= */
 
-.loading-title {
+        .loading-logo {
 
-    margin-top: 20px;
+            width: 68px;
+            height: 68px;
 
-    color: #1c1c1e;
+            display: flex;
 
-    font-size: 20px;
+            align-items: center;
+            justify-content: center;
 
-    line-height: 24px;
+            border-radius: 21px;
 
-    font-weight: 750;
+            background:
+                linear-gradient(
+                    145deg,
+                    #ff477e,
+                    #ff7da5
+                );
 
-    letter-spacing: -.4px;
-}
+            box-shadow:
 
+                0 12px 32px
+                rgba(255, 71, 126, .25),
 
-.loading-text {
+                inset 0 1px 0
+                rgba(255, 255, 255, .4);
 
-    margin-top: 5px;
+            font-size: 32px;
 
-    color: #8e8e93;
+            animation:
+                loadingPulse
+                1.6s
+                ease-in-out
+                infinite;
 
-    font-size: 13px;
+        }
 
-    font-weight: 500;
-}
 
+        /* =========================================================
+           TEXTO LOADING
+        ========================================================= */
 
-/* =========================================================
-   SPINNER
-========================================================= */
+        .loading-title {
 
-.spinner {
+            margin-top: 20px;
 
-    width: 25px;
-    height: 25px;
+            color: #1c1c1e;
 
-    margin-top: 18px;
+            font-size: 20px;
 
-    border-radius: 50%;
+            line-height: 24px;
 
-    border:
-        3px solid
-        rgba(255,71,126,.12);
+            font-weight: 750;
 
-    border-top-color:
-        #ff477e;
+            letter-spacing: -.4px;
 
-    animation:
-        spin
-        .75s
-        linear
-        infinite;
-}
+        }
 
 
-/* =========================================================
-   STATUS
-========================================================= */
+        .loading-text {
 
-.status {
+            margin-top: 5px;
 
-    position: absolute;
+            color: #8e8e93;
 
-    left: 50%;
+            font-size: 13px;
 
-    bottom: 20px;
+            font-weight: 500;
 
-    z-index: 200;
+        }
 
-    display: flex;
 
-    align-items: center;
+        /* =========================================================
+           SPINNER
+        ========================================================= */
 
-    gap: 7px;
+        .spinner {
 
-    padding: 10px 15px;
+            width: 25px;
+            height: 25px;
 
-    border-radius: 14px;
+            margin-top: 18px;
 
-    background:
-        rgba(28,28,30,.94);
+            border-radius: 50%;
 
-    color: #ffffff;
+            border:
+                3px solid
+                rgba(255, 71, 126, .12);
 
-    font-size: 12px;
+            border-top-color:
+                #ff477e;
 
-    font-weight: 600;
+            animation:
+                spin
+                .75s
+                linear
+                infinite;
 
-    box-shadow:
-        0 8px 25px
-        rgba(0,0,0,.18);
+        }
 
-    opacity: 0;
 
-    visibility: hidden;
+        /* =========================================================
+           STATUS
+        ========================================================= */
 
-    pointer-events: none;
+        .status {
 
-    transform:
-        translate(-50%,10px)
-        scale(.96);
+            position: absolute;
 
-    transition:
-        opacity .25s ease,
-        visibility .25s ease,
-        transform .25s ease;
+            left: 50%;
 
-    white-space: nowrap;
-}
+            bottom:
+                calc(
+                    20px +
+                    env(safe-area-inset-bottom)
+                );
 
+            z-index: 200;
 
-.status.show {
+            display: flex;
 
-    opacity: 1;
+            align-items: center;
 
-    visibility: visible;
+            gap: 7px;
 
-    transform:
-        translate(-50%,0)
-        scale(1);
-}
+            padding: 10px 15px;
 
+            border-radius: 14px;
 
-/* =========================================================
-   ÍCONE STATUS
-========================================================= */
+            background:
+                rgba(28, 28, 30, .94);
 
-.status-icon {
+            color: #ffffff;
 
-    width: 16px;
-    height: 16px;
+            font-size: 12px;
 
-    display: flex;
+            font-weight: 600;
 
-    align-items: center;
-    justify-content: center;
+            box-shadow:
+                0 8px 25px
+                rgba(0, 0, 0, .18);
 
-    border-radius: 50%;
+            opacity: 0;
 
-    background: #34c759;
+            visibility: hidden;
 
-    color: #ffffff;
+            pointer-events: none;
 
-    font-size: 10px;
+            transform:
+                translate(-50%, 10px)
+                scale(.96);
 
-    font-weight: 800;
-}
+            transition:
+                opacity .25s ease,
+                visibility .25s ease,
+                transform .25s ease;
 
+            white-space: nowrap;
 
-/* =========================================================
-   CELULARES PEQUENOS
-========================================================= */
+        }
 
-@media (max-width: 380px) {
 
-    .header {
+        .status.show {
 
-        height: 66px;
+            opacity: 1;
 
-        min-height: 66px;
+            visibility: visible;
 
-        padding:
-            0 13px;
-    }
+            transform:
+                translate(-50%, 0)
+                scale(1);
 
+        }
 
-    .logo {
 
-        width: 38px;
-        height: 38px;
+        /* =========================================================
+           ÍCONE DO STATUS
+        ========================================================= */
 
-        border-radius: 12px;
+        .status-icon {
 
-        font-size: 19px;
-    }
+            width: 16px;
+            height: 16px;
 
+            display: flex;
 
-    .title {
+            align-items: center;
+            justify-content: center;
 
-        font-size: 16px;
-    }
+            border-radius: 50%;
 
+            background: #34c759;
 
-    .subtitle {
+            color: #ffffff;
 
-        font-size: 10px;
-    }
+            font-size: 10px;
 
+            font-weight: 800;
 
-    .refresh-button {
+        }
 
-        width: 39px;
-        height: 39px;
 
-        border-radius: 13px;
-    }
+        /* =========================================================
+           ANIMAÇÕES
+        ========================================================= */
 
+        @keyframes spin {
 
-    .content {
+            from {
 
-        padding: 7px;
-    }
+                transform:
+                    rotate(0deg);
 
+            }
 
-    .spreadsheet-container {
+            to {
 
-        border-radius: 15px;
-    }
+                transform:
+                    rotate(360deg);
 
-}
+            }
 
+        }
 
-/* =========================================================
-   TABLET / DESKTOP
-========================================================= */
 
-@media (min-width: 768px) {
+        @keyframes loadingPulse {
 
-    .header {
+            0%,
+            100% {
 
-        padding:
-            0 24px;
-    }
+                transform:
+                    scale(1);
 
+            }
 
-    .content {
+            50% {
 
-        padding: 14px;
-    }
+                transform:
+                    scale(1.045);
 
+            }
 
-    .spreadsheet-container {
+        }
 
-        border-radius: 20px;
-    }
 
-}
+        /* =========================================================
+           IPHONE / CELULARES PEQUENOS
+        ========================================================= */
 
+        @media (max-width: 380px) {
 
-/* =========================================================
-   DARK MODE
-========================================================= */
+            .header {
 
-@media (prefers-color-scheme: dark) {
+                height: 66px;
 
-    html,
-    body {
+                min-height: 66px;
 
-        background: #160d11;
-    }
+                padding-left: 13px;
+                padding-right: 13px;
 
+            }
 
-    .app {
 
-        background:
+            .logo {
 
-            radial-gradient(
-                circle at 90% -10%,
-                rgba(255,71,126,.16),
-                transparent 32%
-            ),
+                width: 38px;
+                height: 38px;
 
-            #160d11;
-    }
+                border-radius: 12px;
 
+                font-size: 19px;
 
-    .header {
+            }
 
-        background:
-            rgba(28,18,22,.88);
 
-        border-bottom-color:
-            rgba(255,255,255,.07);
-    }
+            .title {
 
+                font-size: 16px;
 
-    .title {
+            }
 
-        color: #ffffff;
-    }
 
+            .subtitle {
 
-    .subtitle {
+                font-size: 10px;
 
-        color: #98989f;
-    }
+            }
 
 
-    .refresh-button {
+            .refresh-button {
 
-        background:
-            rgba(255,255,255,.08);
+                width: 39px;
+                height: 39px;
 
-        border-color:
-            rgba(255,255,255,.06);
-    }
+                border-radius: 13px;
 
+            }
 
-    .spreadsheet-container {
+        }
 
-        border-color:
-            rgba(255,255,255,.08);
 
-        box-shadow:
-            0 12px 35px
-            rgba(0,0,0,.25);
-    }
+        /* =========================================================
+           DESKTOP / TABLET
+        ========================================================= */
 
+        @media (min-width: 768px) {
 
-    .loading-screen {
+            .header {
 
-        background:
-            rgba(28,18,22,.98);
-    }
+                padding-left: 24px;
+                padding-right: 24px;
 
+            }
 
-    .loading-title {
+        }
 
-        color: #ffffff;
-    }
 
-}
+        /* =========================================================
+           DARK MODE
+        ========================================================= */
 
+        @media (prefers-color-scheme: dark) {
 
-/* =========================================================
-   REDUÇÃO DE ANIMAÇÕES
-========================================================= */
+            html,
+            body {
 
-@media (prefers-reduced-motion: reduce) {
+                background: #160d11;
 
-    *,
-    *::before,
-    *::after {
+            }
 
-        animation-duration:
-            .01ms !important;
 
-        animation-iteration-count:
-            1 !important;
+            .app {
 
-        transition-duration:
-            .01ms !important;
-    }
+                background:
+                    radial-gradient(
+                        circle at 90% -10%,
+                        rgba(255, 71, 126, .16),
+                        transparent 32%
+                    ),
 
-}
+                    #160d11;
 
-</style>
+            }
+
+
+            .header {
+
+                background:
+                    rgba(28, 18, 22, .88);
+
+                border-bottom-color:
+                    rgba(255, 255, 255, .07);
+
+            }
+
+
+            .title {
+
+                color: #ffffff;
+
+            }
+
+
+            .subtitle {
+
+                color: #98989f;
+
+            }
+
+
+            .refresh-button {
+
+                background:
+                    rgba(255, 255, 255, .08);
+
+                border-color:
+                    rgba(255, 255, 255, .06);
+
+            }
+
+
+            .content,
+            .spreadsheet-container,
+            .spreadsheet {
+
+                background: #ffffff;
+
+            }
+
+
+            .loading-screen {
+
+                background:
+                    rgba(28, 18, 22, .98);
+
+            }
+
+
+            .loading-title {
+
+                color: #ffffff;
+
+            }
+
+        }
+
+
+        /* =========================================================
+           REDUZIR ANIMAÇÕES
+        ========================================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                animation-duration:
+                    .01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    .01ms !important;
+
+            }
+
+        }
+
+    </style>
 
 </head>
 
@@ -961,9 +993,9 @@ body {
 <div class="app">
 
 
-    <!-- =====================================================
+    <!-- =========================================================
          HEADER
-    ====================================================== -->
+    ========================================================== -->
 
     <header class="header">
 
@@ -986,7 +1018,9 @@ body {
 
                 <div class="subtitle">
 
-                    <span class="online-dot"></span>
+                    <span
+                        class="online-dot">
+                    </span>
 
                     Controle financeiro
 
@@ -999,6 +1033,10 @@ body {
         </div>
 
 
+        <!-- =====================================================
+             BOTÃO ATUALIZAR
+        ====================================================== -->
+
         <button
             type="button"
             class="refresh-button"
@@ -1006,11 +1044,10 @@ body {
             aria-label="Atualizar planilha"
             title="Atualizar planilha">
 
-
-            <span class="refresh-icon">
+            <span
+                class="refresh-icon">
                 ↻
             </span>
-
 
         </button>
 
@@ -1018,10 +1055,9 @@ body {
     </header>
 
 
-
-    <!-- =====================================================
-         CONTEÚDO
-    ====================================================== -->
+    <!-- =========================================================
+         ÁREA PRINCIPAL
+    ========================================================== -->
 
     <main class="content">
 
@@ -1053,11 +1089,11 @@ body {
                 </div>
 
 
-                <div class="spinner"></div>
+                <div class="spinner">
+                </div>
 
 
             </div>
-
 
 
             <!-- =================================================
@@ -1082,7 +1118,6 @@ body {
         </div>
 
 
-
         <!-- =====================================================
              STATUS
         ====================================================== -->
@@ -1094,7 +1129,8 @@ body {
             aria-live="polite">
 
 
-            <span class="status-icon">
+            <span
+                class="status-icon">
                 ✓
             </span>
 
@@ -1111,236 +1147,231 @@ body {
 </div>
 
 
-
 <script>
 
-/* =========================================================
-   ELEMENTOS
-========================================================= */
+    /* =========================================================
+       ELEMENTOS
+    ========================================================= */
 
-const iframe =
-    document.getElementById(
-        "spreadsheet"
-    );
-
-
-const loadingScreen =
-    document.getElementById(
-        "loadingScreen"
-    );
-
-
-const refreshButton =
-    document.getElementById(
-        "refreshButton"
-    );
-
-
-const status =
-    document.getElementById(
-        "status"
-    );
-
-
-let isRefreshing = false;
-
-let statusTimeout = null;
-
-
-/* =========================================================
-   EXCEL CARREGOU
-========================================================= */
-
-iframe.addEventListener(
-    "load",
-    function () {
-
-        /*
-         * Pequeno atraso para o Excel
-         * terminar de montar sua interface.
-         */
-
-        setTimeout(
-            function () {
-
-                loadingScreen
-                    .classList
-                    .add("hidden");
-
-            },
-            350
+    const iframe =
+        document.getElementById(
+            "spreadsheet"
         );
 
 
+    const loadingScreen =
+        document.getElementById(
+            "loadingScreen"
+        );
+
+
+    const refreshButton =
+        document.getElementById(
+            "refreshButton"
+        );
+
+
+    const status =
+        document.getElementById(
+            "status"
+        );
+
+
+    let statusTimeout = null;
+
+    let isRefreshing = false;
+
+
+    /* =========================================================
+       PRIMEIRO CARREGAMENTO
+    ========================================================= */
+
+    iframe.addEventListener(
+        "load",
+        function () {
+
+            /*
+             * Pequeno atraso para evitar
+             * mostrar o Excel enquanto ele
+             * ainda está montando a interface.
+             */
+
+            setTimeout(
+                function () {
+
+                    loadingScreen
+                        .classList
+                        .add("hidden");
+
+                },
+                350
+            );
+
+
+            /*
+             * Finaliza o estado de atualização.
+             */
+
+            refreshButton
+                .classList
+                .remove("loading");
+
+
+            if (isRefreshing) {
+
+                isRefreshing = false;
+
+                showStatus();
+
+            }
+
+        }
+    );
+
+
+    /* =========================================================
+       ATUALIZAR PLANILHA
+    ========================================================= */
+
+    function refreshSpreadsheet() {
+
+        if (isRefreshing) {
+
+            return;
+
+        }
+
+
+        isRefreshing = true;
+
+
         /*
-         * Para animação do botão.
+         * Mostra loading.
+         */
+
+        loadingScreen
+            .classList
+            .remove("hidden");
+
+
+        /*
+         * Ativa animação do botão.
          */
 
         refreshButton
             .classList
-            .remove("loading");
+            .add("loading");
 
 
         /*
-         * Se foi uma atualização,
-         * mostra confirmação.
+         * Recarrega somente o iframe.
+         *
+         * A página principal permanece fixa.
          */
 
-        if (isRefreshing) {
-
-            isRefreshing = false;
-
-            showStatus();
-
-        }
-
-    }
-);
+        const currentSrc =
+            iframe.getAttribute("src");
 
 
-/* =========================================================
-   ATUALIZAR PLANILHA
-========================================================= */
-
-function refreshSpreadsheet() {
-
-    if (isRefreshing) {
-
-        return;
-
-    }
-
-
-    isRefreshing = true;
-
-
-    /*
-     * Mostra novamente a tela de carregamento.
-     */
-
-    loadingScreen
-        .classList
-        .remove("hidden");
-
-
-    /*
-     * Anima botão.
-     */
-
-    refreshButton
-        .classList
-        .add("loading");
-
-
-    /*
-     * Recarrega somente o iframe.
-     *
-     * O restante do aplicativo
-     * permanece completamente fixo.
-     */
-
-    const currentSrc =
-        iframe.getAttribute("src");
-
-
-    iframe.setAttribute(
-        "src",
-        currentSrc
-    );
-
-}
-
-
-/* =========================================================
-   BOTÃO
-========================================================= */
-
-refreshButton.addEventListener(
-    "click",
-    function () {
-
-        refreshSpreadsheet();
-
-    }
-);
-
-
-/* =========================================================
-   STATUS
-========================================================= */
-
-function showStatus() {
-
-    clearTimeout(
-        statusTimeout
-    );
-
-
-    status
-        .classList
-        .add("show");
-
-
-    statusTimeout =
-        setTimeout(
-            function () {
-
-                status
-                    .classList
-                    .remove("show");
-
-            },
-            1800
+        iframe.setAttribute(
+            "src",
+            currentSrc
         );
 
-}
+    }
 
 
-/* =========================================================
-   SERVICE WORKER
-========================================================= */
+    /* =========================================================
+       BOTÃO ATUALIZAR
+    ========================================================= */
 
-if (
-    "serviceWorker"
-    in navigator
-) {
-
-    window.addEventListener(
-        "load",
+    refreshButton.addEventListener(
+        "click",
         function () {
 
-            navigator.serviceWorker
-
-                .register(
-                    "./service-worker.js"
-                )
-
-                .then(
-                    function (registration) {
-
-                        console.log(
-                            "Service Worker registrado:",
-                            registration.scope
-                        );
-
-                    }
-                )
-
-                .catch(
-                    function (error) {
-
-                        console.error(
-                            "Erro ao registrar Service Worker:",
-                            error
-                        );
-
-                    }
-                );
+            refreshSpreadsheet();
 
         }
     );
 
-}
+
+    /* =========================================================
+       STATUS
+    ========================================================= */
+
+    function showStatus() {
+
+        clearTimeout(
+            statusTimeout
+        );
+
+
+        status
+            .classList
+            .add("show");
+
+
+        statusTimeout =
+            setTimeout(
+                function () {
+
+                    status
+                        .classList
+                        .remove("show");
+
+                },
+                1800
+            );
+
+    }
+
+
+    /* =========================================================
+       SERVICE WORKER
+    ========================================================= */
+
+    if (
+        "serviceWorker"
+        in navigator
+    ) {
+
+        window.addEventListener(
+            "load",
+            function () {
+
+                navigator.serviceWorker
+
+                    .register(
+                        "./service-worker.js"
+                    )
+
+                    .then(
+                        function (registration) {
+
+                            console.log(
+                                "Service Worker registrado:",
+                                registration.scope
+                            );
+
+                        }
+                    )
+
+                    .catch(
+                        function (error) {
+
+                            console.error(
+                                "Erro ao registrar Service Worker:",
+                                error
+                            );
+
+                        }
+                    );
+
+            }
+        );
+
+    }
+
 
 </script>
 
